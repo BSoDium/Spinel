@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"conventionalCommits.scopes": [
+			"shaders",
+			"examples",
+			"scheduling",
+			"math",
+			"exceptions",
+			"nodes"
+		]
+	}
+}
