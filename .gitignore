@@ -24,5 +24,8 @@ hs_err_pid*
 
 # vs code
 .vscode/
-.settings/
 
+# maven
+.settings/
+target/
+bin/

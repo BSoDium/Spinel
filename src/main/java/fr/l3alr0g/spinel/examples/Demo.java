@@ -23,7 +23,6 @@ public class Demo {
     private Mesh surfaceMesh;
     private Item surfaceItem;
     private PlaneCollider surfaceCollider;
-    private GuiNode debugStats;
 
     /** A hashmap containing all the keybinds in this demo */
     private HashMap<Integer, Runnable> keybinds = new HashMap<>();
