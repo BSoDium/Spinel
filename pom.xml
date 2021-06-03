@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>fr.l3alr0g.spinel</groupId>
   <artifactId>spinel</artifactId>
-  <version>0.4-SNAPSHOT</version>
+  <version>0.0.4</version>
 
   <name>spinel</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.spinel.l3alr0g.fr</url>
+  <description>
+    An openGL-based 3D rendering engine.
+  </description>
+  <url>https://github.com/l3alr0g/Spinel</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://raw.githubusercontent.com/l3alr0g/Spinel/main/LICENSE</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Philippe Négrel-Jerzy</name>
+      <email>negreljerzy.philippe@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git@github.com:l3alr0g/Spinel.git</connection>
+    <developerConnection>scm:git:ssh://github.com:l3alr0g/Spinel.git</developerConnection>
+    <url>https://github.com/l3alr0g/Spinel/tree/main</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
 
     <lwjgl.version>3.2.3</lwjgl.version>
     <imgui.java.version>1.82.2</imgui.java.version>
@@ -367,7 +388,8 @@
   </dependencies>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
+      <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
