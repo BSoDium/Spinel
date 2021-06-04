@@ -6,6 +6,7 @@
   <groupId>fr.l3alr0g.spinel</groupId>
   <artifactId>spinel</artifactId>
   <version>0.0.4</version>
+  <packaging>jar</packaging>
 
   <name>spinel</name>
   <description>
@@ -54,6 +55,14 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub l3alr0g Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/l3alr0g/Spinel</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
 
