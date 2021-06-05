@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>fr.l3alr0g.spinel</groupId>
+  <groupId>io.github.spinel</groupId>
   <artifactId>spinel</artifactId>
   <version>0.0.4</version>
   <packaging>jar</packaging>
@@ -408,8 +408,8 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>fr.l3alr0g.spinel.examples.PlaneDemo</mainClass>
-                <mainClass>fr.l3alr0g.spinel.examples.RotationDemo</mainClass>
+                <mainClass>io.github.spinel.examples.PlaneDemo</mainClass>
+                <mainClass>io.github.spinel.examples.RotationDemo</mainClass>
               </manifest>
             </archive>
           </configuration>
