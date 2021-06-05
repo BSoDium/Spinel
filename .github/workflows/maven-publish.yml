@@ -16,7 +16,6 @@ jobs:
       packages: write
 
     steps:
-    - name: Checkout main branch from Github
     - uses: actions/checkout@v2
     
     - name: Set up JDK 11
