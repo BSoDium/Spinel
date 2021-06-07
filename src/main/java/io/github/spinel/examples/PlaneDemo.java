@@ -18,6 +18,20 @@ import org.lwjgl.glfw.GLFW;
 
 import imgui.ImGui;
 
+/**
+ * This demo aims to show how to create procedural meshes without using shaders,
+ * such as a plane with randomized vertex height and color.
+ * 
+ * <p>
+ * Controls :
+ * <ul>
+ * <li>arrow keys controls camera pitch and yaw</li>
+ * <li>a and e / q and e controls camera roll</li>
+ * <li>zqsd / wasd to move</li>
+ * </ul>
+ * </p>
+ * 
+ */
 public class PlaneDemo {
     private Engine engine = new Engine();
     private Mesh surfaceMesh;

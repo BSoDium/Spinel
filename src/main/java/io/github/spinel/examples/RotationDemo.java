@@ -13,6 +13,20 @@ import io.github.spinel.gfx.Vertex;
 import io.github.spinel.math.Vector3f;
 import io.github.spinel.scheduling.events.EmptyEvent;
 
+/**
+ * This demo aims to show how to control an Item's movement at runtime, such as
+ * a basic cube in this particular scenario.
+ * 
+ * <p>
+ * Controls :
+ * <ul>
+ * <li>arrow keys controls camera pitch and yaw</li>
+ * <li>a and e / q and e controls camera roll</li>
+ * <li>zqsd / wasd to move</li>
+ * </ul>
+ * </p>
+ * 
+ */
 public class RotationDemo {
         private Engine engine = new Engine();
         private Item cube;
