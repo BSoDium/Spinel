@@ -14,5 +14,30 @@
 			"exceptions",
 			"nodes"
 		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "java",
+				"name": "Launch Current File",
+				"request": "launch",
+				"mainClass": "${file}"
+			},
+			{
+				"type": "java",
+				"name": "Launch PlaneDemo",
+				"request": "launch",
+				"mainClass": "io.github.spinel.examples.PlaneDemo",
+				"projectName": "spinel"
+			},
+			{
+				"type": "java",
+				"name": "Launch RotationDemo",
+				"request": "launch",
+				"mainClass": "io.github.spinel.examples.RotationDemo",
+				"projectName": "spinel"
+			}
+		]
 	}
 }

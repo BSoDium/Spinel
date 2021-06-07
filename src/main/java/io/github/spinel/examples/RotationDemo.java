@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.lwjgl.glfw.GLFW;
 
-import io.github.spinel.Engine;
 import io.github.spinel.elements.geom.Item;
 import io.github.spinel.gfx.Color;
 import io.github.spinel.gfx.Mesh;
@@ -27,20 +26,11 @@ import io.github.spinel.scheduling.events.EmptyEvent;
  * </p>
  * 
  */
-public class RotationDemo {
-        private Engine engine = new Engine();
+public class RotationDemo extends SpinelDemo {
         private Item cube;
         private int time = 0;
 
-        private void start() {
-                // build Items
-                build();
-                // set up key bindings
-                setup();
-                engine.start();
-        }
-
-        private void build() {
+        protected void build() {
                 Vertex[] vertices = new Vertex[] { new Vertex(new Vector3f(-1, -1, 1), new Color(255, 255, 255)),
                                 new Vertex(new Vector3f(1, -1, 1), new Color(0, 255, 255)),
                                 new Vertex(new Vector3f(1, -1, -1), new Color(255, 0, 255)),
@@ -70,7 +60,7 @@ public class RotationDemo {
                 engine.getCamera().setPos(1, 2, 4);
         }
 
-        private void setup() {
+        protected void setup() {
                 HashMap<Integer, Runnable> keybinds = new HashMap<>();
                 keybinds.put(GLFW.GLFW_KEY_A, () -> engine.getCamera()
                                 .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceZ().divide(8))));
