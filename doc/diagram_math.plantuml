@@ -1,0 +1,36 @@
+@startuml math
+
+package math {
+    abstract class ContainerNf {
+        # content : float[]
+        # {static} size : int[]
+        # {static} dim : int
+
+        # {abstract} add(container : C) : C
+        # {abstract} add(value : float) : C
+        # {abstract} sub(container : C) : C
+        # {abstract} sub(value : float) : C
+        # {abstract} norm() : float
+        # {abstract} normalize() : C
+        # {abstract} product(container : C) : C
+        # {abstract} product(value : float) : C
+        # {abstract} divide(value : float) : C
+
+    }
+
+    abstract class Matrixf extends ContainerNf {}
+    class Matrix3f extends Matrixf {}
+    class Matrix4f extends Matrixf {}
+
+    abstract class Vectorf extends ContainerNf {}
+    class Vector2f extends Vectorf {}
+    class Vector3f extends Vectorf {}
+    class Vector4f extends Vectorf {}
+
+    abstract class Pointf extends ContainerNf {}
+    class Point2f extends Pointf {}
+    class Point3f extends Pointf {}
+}
+
+
+@enduml
