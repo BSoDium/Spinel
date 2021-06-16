@@ -28,6 +28,13 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
         }
         this.dim = dim;
         this.size = size;
+
+        // initialize content
+        int contentLength = 1;
+        for (int s : size) {
+            contentLength *= s;
+        }
+        content = new float[contentLength];
         computeCoefs();
     }
 
@@ -41,9 +48,10 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
      * Precompute the values used in the get() method.
      */
     private void computeCoefs() {
+        coefs = new int[dim];
         for (int i = 0; i < dim; i++) {
             coefs[i] = 1;
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 coefs[i] *= size[j];
             }
         }
@@ -120,9 +128,9 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
      */
     public C add(C container) {
         C output = copy();
-        float[] baseContent = container.getContent();
-        float[] addedContent = content.clone();
-        if (container.getDim() == dim && container.getSize().equals(size)) {
+        float[] addedContent = container.getContent();
+        float[] baseContent = content.clone();
+        if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
             for (int i = 0; i < content.length; i++) {
                 baseContent[i] += addedContent[i];
             }
@@ -157,9 +165,9 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
      */
     public C sub(C container) {
         C output = copy();
-        float[] baseContent = container.getContent();
-        float[] addedContent = content.clone();
-        if (container.getDim() == dim && container.getSize().equals(size)) {
+        float[] addedContent = container.getContent();
+        float[] baseContent = content.clone();
+        if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
             for (int i = 0; i < content.length; i++) {
                 baseContent[i] -= addedContent[i];
             }
@@ -215,7 +223,30 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
      * @param value the float by which the instance is to be multiplied
      * @return this * value
      */
-    public abstract C product(float value);
+    public C product(float value) {
+        C output = copy();
+        float[] baseContent = content.clone();
+        for (int i = 0; i < content.length; i++) {
+            baseContent[i] *= value;
+        }
+        output.setContent(baseContent);
+        return output;
+    }
+
+    public C divide(C container) {
+        C output = copy();
+        float[] addedContent = container.getContent();
+        float[] baseContent = content.clone();
+        if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
+            for (int i = 0; i < content.length; i++) {
+                baseContent[i] /= addedContent[i];
+            }
+            output.setContent(baseContent);
+        } else {
+            throw new IncorrectDimensionError("Cannot add two containers of incompatible sizes / dimensions");
+        }
+        return output;
+    }
 
     /**
      * Calculate the quotient between the current container instance and a float.
@@ -223,10 +254,18 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
      * @param value the float by which the instance is to be divided
      * @return this / value
      */
-    public abstract C divide(float value);
+    public C divide(float value) {
+        C output = copy();
+        float[] baseContent = content.clone();
+        for (int i = 0; i < content.length; i++) {
+            baseContent[i] /= value;
+        }
+        output.setContent(baseContent);
+        return output;
+    }
 
     /**
-     * Make a deep copy of the current container instance.
+     * Create a deep copy of the current container instance.
      * 
      * @return container copy
      */

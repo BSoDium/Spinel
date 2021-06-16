@@ -8,7 +8,7 @@ import java.util.Map;
 import io.github.spinel.Engine;
 import io.github.spinel.elements.colliders.PlaneCollider;
 import io.github.spinel.elements.geom.Item;
-import io.github.spinel.elements.gui.GuiNode;
+import io.github.spinel.elements.gui.GuiLayer;
 import io.github.spinel.gfx.Color;
 import io.github.spinel.gfx.Mesh;
 import io.github.spinel.gfx.Vertex;
@@ -137,9 +137,17 @@ public class PlaneDemo {
         // ImGui.getIO().getFonts().addFontFromFileTTF("src/main/resources/fonts/Raleway/static/Raleway-Regular.ttf",
         // 20);
 
-        GuiNode testGuiNode = new GuiNode("Test GuiNode");
+        GuiLayer testGuiNode = new GuiLayer("Test GuiNode");
         testGuiNode.addLogic(() -> {
-            ImGui.showDemoWindow();
+            Vector3f cameraPos = engine.getCamera().getPos();
+            Vector3f cameraRot = engine.getCamera().getRot();
+            Vector3f[] base = new Vector3f[] { engine.getCamera().getReferenceX(), engine.getCamera().getReferenceY(),
+                    engine.getCamera().getReferenceZ() };
+            ImGui.text(String.format("Camera pos : %f, %f, %f", cameraPos.getX(), cameraPos.getY(), cameraPos.getZ()));
+            ImGui.text(String.format("Camera rot : %f, %f, %f", cameraRot.getX(), cameraRot.getY(), cameraRot.getZ()));
+            ImGui.text(String.format("ReferenceX : %f, %f, %f", base[0].getX(), base[0].getY(), base[0].getZ()));
+            ImGui.text(String.format("ReferenceY : %f, %f, %f", base[1].getX(), base[1].getY(), base[1].getZ()));
+            ImGui.text(String.format("ReferenceZ : %f, %f, %f", base[2].getX(), base[2].getY(), base[2].getZ()));
         });
         testGuiNode.setParent(engine.getGuiRoot());
     }

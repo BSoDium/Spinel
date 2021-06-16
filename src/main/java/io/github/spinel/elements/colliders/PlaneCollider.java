@@ -20,10 +20,10 @@ public class PlaneCollider extends Collider {
         super(position, rotation);
         frame = getFrame();
         Vector3f a, b, c, d;
-        a = new Vector3f(frame[0].multiply(size).add(frame[1].multiply(size)));
-        b = new Vector3f(frame[0].multiply(-size).add(frame[1].multiply(size)));
-        c = new Vector3f(frame[0].multiply(-size).add(frame[1].multiply(-size)));
-        d = new Vector3f(frame[0].multiply(size).add(frame[1].multiply(-size)));
+        a = new Vector3f(frame[0].product(size).add(frame[1].product(size)));
+        b = new Vector3f(frame[0].product(-size).add(frame[1].product(size)));
+        c = new Vector3f(frame[0].product(-size).add(frame[1].product(-size)));
+        d = new Vector3f(frame[0].product(size).add(frame[1].product(-size)));
         Mesh debugMesh = new Mesh(
                 new Vertex[] { new Vertex(a, new Color(120, 120, 120)), new Vertex(b, new Color(120, 120, 120)),
                         new Vertex(c, new Color(120, 120, 120)), new Vertex(d, new Color(120, 120, 120)) },

@@ -5,7 +5,7 @@ import io.github.spinel.elements.RootNode;
 import io.github.spinel.elements.geom.Camera;
 import io.github.spinel.elements.geom.GeomNode;
 import io.github.spinel.elements.geom.Item;
-import io.github.spinel.math.Matrix4f;
+import io.github.spinel.math.TransferMatrix4f;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -49,8 +49,8 @@ public class SceneRenderer extends RootNode {
         }
 
         shader.bind(); // bind before drawing
-        shader.setUniform("model", Matrix4f.transform(element.getPos(), element.getRot(), element.getScale()));
-        shader.setUniform("view", Matrix4f.view(camera.getPos(), camera.getRot()));
+        shader.setUniform("model", TransferMatrix4f.transform(element.getPos(), element.getRot(), element.getScale()));
+        shader.setUniform("view", TransferMatrix4f.view(camera.getPos(), camera.getRot()));
         shader.setUniform("projection", camera.getProjector());
         GL11.glDrawElements(GL11.GL_TRIANGLES, element.getMesh().getIndices().length, GL11.GL_UNSIGNED_INT, 0);
         shader.unbind(); // unbind after drawing (ready for the next shader to be applied)

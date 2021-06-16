@@ -59,7 +59,7 @@ public class Item extends GeomNode {
      * @param sz scale on the Z axis
      */
     public void setScale(float sx, float sy, float sz) {
-        scale.set(sx, sy, sz);
+        scale.set(new Vector3f(sx, sy, sz));
     }
 
     // other methods

@@ -73,7 +73,7 @@ public class GeomNode extends Node {
      */
     public void setPos(float x, float y, float z) {
         Vector3f delta = new Vector3f(x, y, z).sub(new Vector3f(position));
-        position.set(x, y, z);
+        position.setContent(new float[] { x, y, z });
         hiddenChildren.forEach((Node cNode) -> {
             Vector3f current = ((GeomNode) cNode).getPos();
             Vector3f next = current.add(delta);
@@ -104,7 +104,7 @@ public class GeomNode extends Node {
      */
     public void setRot(float l, float m, float n) {
         Vector3f delta = new Vector3f(l, m, n).sub(new Vector3f(rotation));
-        rotation.set(l, m, n);
+        rotation.setContent(new float[] { l, m, n });
         hiddenChildren.forEach((Node cNode) -> {
             Vector3f current = ((GeomNode) cNode).getRot();
             Vector3f next = current.add(delta);

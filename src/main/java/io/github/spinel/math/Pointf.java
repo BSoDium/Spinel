@@ -15,7 +15,6 @@ public abstract class Pointf extends ContainerNf<Pointf> {
      */
     protected Pointf(int size) {
         super(1, new int[] { size });
-        this.content = new float[size];
     }
 
     /**

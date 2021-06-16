@@ -18,14 +18,14 @@ package math {
 
     }
 
-    abstract class Matrixf extends ContainerNf {}
-    class Matrix3f extends Matrixf {}
-    class Matrix4f extends Matrixf {}
+    abstract class MatrixNf extends ContainerNf {}
+    class Matrix3f extends MatrixNf {}
+    class Matrix4f extends MatrixNf {}
 
-    abstract class Vectorf extends ContainerNf {}
-    class Vector2f extends Vectorf {}
-    class Vector3f extends Vectorf {}
-    class Vector4f extends Vectorf {}
+    abstract class VectorNf extends ContainerNf {}
+    class Vector2f extends VectorNf {}
+    class Vector3f extends VectorNf {}
+    class Vector4f extends VectorNf {}
 
     abstract class Pointf extends ContainerNf {}
     class Point2f extends Pointf {}

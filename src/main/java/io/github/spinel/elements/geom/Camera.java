@@ -1,6 +1,7 @@
 package io.github.spinel.elements.geom;
 
 import io.github.spinel.math.Matrix4f;
+import io.github.spinel.math.TransferMatrix4f;
 import io.github.spinel.math.Vector3f;
 
 /**
@@ -13,7 +14,7 @@ public class Camera extends GeomNode {
 
     public Camera(Vector3f position, Vector3f rotation, float aspect) {
         super(position, rotation, "Camera");
-        projector = Matrix4f.project(aspect, fov, nearfar[0], nearfar[1]); // (float) width / (float) height
+        projector = TransferMatrix4f.project(aspect, fov, nearfar[0], nearfar[1]); // (float) width / (float) height
     }
 
     public Matrix4f getProjector() {
