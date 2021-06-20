@@ -5,7 +5,7 @@ package io.github.spinel.exceptions;
  */
 public class IncorrectChildTypeException extends RuntimeException {
 
-    public IncorrectChildTypeException(String report) {
-        super(String.format("[Inheritance fatal error] %s", report));
-    }
+  public IncorrectChildTypeException(String report) {
+    super(String.format("[Inheritance fatal error] %s", report));
+  }
 }

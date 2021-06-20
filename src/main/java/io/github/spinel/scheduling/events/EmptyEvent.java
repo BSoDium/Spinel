@@ -6,13 +6,13 @@ package io.github.spinel.scheduling.events;
  */
 public class EmptyEvent extends Event {
 
-    @Override
-    public boolean isActive() {
-        return true;
-    }
+  @Override
+  public boolean isActive() {
+    return true;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        return obj instanceof EmptyEvent;
-    }
+  @Override
+  public boolean equals(Object obj) {
+    return obj instanceof EmptyEvent;
+  }
 }
