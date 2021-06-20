@@ -1,4 +1,4 @@
-# `package io.github.spinel.math`
+# package `io.github.spinel.math`
 
 ## About
 

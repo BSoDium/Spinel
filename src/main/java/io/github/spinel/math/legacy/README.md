@@ -1,4 +1,4 @@
-# `package io.github.spinel.math.legacy`
+# package `io.github.spinel.math.legacy`
 
 ## About
 
