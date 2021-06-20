@@ -130,11 +130,11 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
    */
   public C add(C container) {
     C output = copy();
-    float[] addedContent = container.getContent();
+    float[] inputContent = container.getContent();
     float[] baseContent = content.clone();
     if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
       for (int i = 0; i < content.length; i++) {
-        baseContent[i] += addedContent[i];
+        baseContent[i] += inputContent[i];
       }
       output.setContent(baseContent);
     } else {
@@ -167,11 +167,11 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
    */
   public C sub(C container) {
     C output = copy();
-    float[] addedContent = container.getContent();
+    float[] inputContent = container.getContent();
     float[] baseContent = content.clone();
     if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
       for (int i = 0; i < content.length; i++) {
-        baseContent[i] -= addedContent[i];
+        baseContent[i] -= inputContent[i];
       }
       output.setContent(baseContent);
     } else {
@@ -220,6 +220,28 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
   public abstract C product(C container);
 
   /**
+   * Calculate the term by term product between the current container instance and
+   * another container.
+   * 
+   * @param container the container by which the instance is to be multiplied
+   * @return this .* container
+   */
+  public C tbtproduct(C container) {
+    C output = copy();
+    float[] inputContent = container.getContent();
+    float[] baseContent = content.clone();
+    if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
+      for (int i = 0; i < content.length; i++) {
+        baseContent[i] *= inputContent[i];
+      }
+      output.setContent(baseContent);
+    } else {
+      throw new IncorrectDimensionError("Cannot add two containers of incompatible sizes / dimensions");
+    }
+    return output;
+  }
+
+  /**
    * Calculate the product between the current container instance and a float.
    * 
    * @param value the float by which the instance is to be multiplied
@@ -243,13 +265,13 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
    *                  by term quotient)
    * @return this / container
    */
-  public C divide(C container) {
+  public C tbtdivide(C container) {
     C output = copy();
-    float[] addedContent = container.getContent();
+    float[] inputContent = container.getContent();
     float[] baseContent = content.clone();
     if (container.getDim() == dim && Arrays.equals(container.getSize(), size)) {
       for (int i = 0; i < content.length; i++) {
-        baseContent[i] /= addedContent[i];
+        baseContent[i] /= inputContent[i];
       }
       output.setContent(baseContent);
     } else {

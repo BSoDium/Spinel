@@ -103,7 +103,7 @@ public class Vector3fTest extends VectorNfTest<Vector3f> {
 
 		// test vector division (term by term)
 		temp = new Vector3f(new float[] { 1, 1, 1 });
-		temp = temp.divide(containers[0]);
+		temp = temp.tbtdivide(containers[0]);
 		for (int i = 0; i < 3; i++) {
 			assertEquals(temp.get(i), 1 / containers[0].get(i), delta);
 		}

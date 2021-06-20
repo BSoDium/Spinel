@@ -83,7 +83,7 @@ public final class Vector4f extends VectorNf<Vector4f> {
   @Override
   public Vector4f normalize() {
     float length = norm();
-    return divide(new Vector4f(length, length, length, length));
+    return tbtdivide(new Vector4f(length, length, length, length));
   }
 
   /**

@@ -139,7 +139,7 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 
 		// test matrix division (term by term)
 		id = Matrix4f.id();
-		id = id.divide(containers[0]);
+		id = id.tbtdivide(containers[0]);
 		for (int i = 0; i < 4; i++) {
 			assertEquals(id.get(i, i), 1 / containers[0].get(i, i), delta);
 		}
