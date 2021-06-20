@@ -10,21 +10,21 @@ import io.github.spinel.elements.geom.Item;
  * </p>
  */
 public class ShaderDemo extends SpinelDemo {
-    private Item ocean;
+  private Item ocean;
 
-    @Override
-    protected void build() {
-        // TODO Auto-generated method stub
-        
-    }
+  @Override
+  protected void build() {
+    // TODO Auto-generated method stub
+    
+  }
 
-    @Override
-    protected void setup() {
-        engine.getSceneRoot().tree();
-        
-    }
+  @Override
+  protected void setup() {
+    engine.getSceneRoot().tree();
+    
+  }
 
-    public static void main(String[] args) {
-        new ShaderDemo().start();
-    }    
+  public static void main(String[] args) {
+    new ShaderDemo().start();
+  }  
 }

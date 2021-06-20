@@ -6,7 +6,7 @@ package io.github.spinel.exceptions;
  */
 public class IllegalInstanceException extends RuntimeException {
 
-    public IllegalInstanceException(String instanceName) {
-        super(String.format("Attempting to spawn multiple instances of %s", instanceName));
-    }
+  public IllegalInstanceException(String instanceName) {
+    super(String.format("Attempting to spawn multiple instances of %s", instanceName));
+  }
 }

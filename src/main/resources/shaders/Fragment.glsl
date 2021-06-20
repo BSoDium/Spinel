@@ -9,9 +9,9 @@ uniform sampler2D tex; // texture
 uniform int textureSample;
 
 void main() {
-    if (textureSample == 1) {
-        outColor = texture(tex, passTexCoord);
-    } else {
-        outColor = vec4(passColor, 1.0);
-    }
+  if (textureSample == 1) {
+    outColor = texture(tex, passTexCoord);
+  } else {
+    outColor = vec4(passColor, 1.0);
+  }
 }

@@ -5,12 +5,12 @@ package io.github.spinel.exceptions;
  */
 public class InitError extends Error {
 
-    /**
-     * just so vs code can happily stop throwing warnings for no fucking reason.
-     */
-    private static final long serialVersionUID = 1L;
+  /**
+   * just so vs code can happily stop throwing warnings for no fucking reason.
+   */
+  private static final long serialVersionUID = 1L;
 
-    public InitError(String report) {
-        super(String.format("[Execution stopped] %s", report));
-    }
+  public InitError(String report) {
+    super(String.format("[Execution stopped] %s", report));
+  }
 }

@@ -5,7 +5,7 @@ package io.github.spinel.exceptions;
  */
 public class IncorrectDimensionError extends Error {
 
-    public IncorrectDimensionError(String report) {
-        super(String.format("[Math error] %s", report));
-    }
+  public IncorrectDimensionError(String report) {
+    super(String.format("[Math error] %s", report));
+  }
 }
