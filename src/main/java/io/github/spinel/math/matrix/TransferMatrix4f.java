@@ -64,7 +64,7 @@ public class TransferMatrix4f {
    * 
    * @param position position vector
    * @param rotation rotation vector
-   * @param scale  scaling factor
+   * @param scale    scaling factor
    * @return scaling matrix
    */
   public static Matrix4f transform(Vector3f position, Vector3f rotation, Vector3f scale) {
@@ -87,7 +87,7 @@ public class TransferMatrix4f {
    * Generate a projection matrix for the specified parameters.
    * 
    * @param aspect   aspect ratio
-   * @param fov    field of view
+   * @param fov      field of view
    * @param nearDist near distance
    * @param farDist  far distance
    * @return projection matrix
@@ -124,9 +124,9 @@ public class TransferMatrix4f {
     Matrix4f rYMatrix = rotation(rotation.getY(), new Vector3f(0, 1, 0));
     Matrix4f rZMatrix = rotation(rotation.getZ(), new Vector3f(0, 0, 1));
     // rotation matrix
-    Matrix4f rMatrix = rZMatrix.product(rYMatrix.product(rXMatrix));
+    Matrix4f rMatrix = rXMatrix.product(rYMatrix).product(rZMatrix);
 
-    output = tMatrix.product(rMatrix);
+    output = rMatrix.product(tMatrix);
 
     return output;
   }
