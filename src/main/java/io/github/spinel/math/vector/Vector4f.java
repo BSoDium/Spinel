@@ -17,7 +17,7 @@ public final class Vector4f extends VectorNf<Vector4f> {
    * Create a new Vector4f with a predefined dimension count of 1, and a size of 1
    * by 4. Provide the constructor with some initial data to start with.
    */
-  protected Vector4f(float[] content) {
+  public Vector4f(float[] content) {
     super(4, content);
   }
 

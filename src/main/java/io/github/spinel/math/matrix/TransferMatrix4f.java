@@ -93,7 +93,7 @@ public class TransferMatrix4f {
    * @return projection matrix
    */
   public static Matrix4f project(float aspect, float fov, float nearDist, float farDist) {
-    Matrix4f output = Matrix4f.zero();
+    Matrix4f output = Matrix4f.zeros();
 
     float tanFOV = (float) Math.tan(Math.toRadians(fov / 2));
     float range = farDist - nearDist;

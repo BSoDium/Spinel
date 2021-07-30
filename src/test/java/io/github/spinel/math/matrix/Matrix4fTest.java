@@ -6,27 +6,34 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import io.github.spinel.math.vector.Vector4f;
+
 public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 
 	@Before
 	public void setup() {
+		data = new float[7][];
 		containers = new Matrix4f[3];
-		data = new float[5][];
+		vectors = new Vector4f[2];
 
 		data[0] = new float[] { 1, 1, 1, 1, 0, 0, 0, 0, 3, 1, 2, 1, 0, 1, 1, 0 };
 		data[1] = new float[] { 1, 0, 0, -4, 3, 0, 0, 1, 1, 7, 1, 1, 0, 1, 1, 0 };
+		data[2] = new float[] { 1, 9, 0, 2 };
 
-		// data(containers[0] * containers[1]) = data[2]
-		data[2] = new float[] { 5, 8, 2, -2, 0, 0, 0, 0, 8, 15, 3, -9, 4, 7, 1, 2 };
-		// data(containers[0] + containers[1]) = data[3]
-		data[3] = new float[] { 2, 1, 1, -3, 3, 0, 0, 1, 4, 8, 3, 2, 0, 2, 2, 0 };
-		// data(containers[0] - containers[1]) = data[4]
-		data[4] = new float[] { 0, 1, 1, 5, -3, 0, 0, -1, 2, -6, 1, 0, 0, 0, 0, 0 };
+		// data(containers[0] * containers[1]) = data[3]
+		data[3] = new float[] { 5, 8, 2, -2, 0, 0, 0, 0, 8, 15, 3, -9, 4, 7, 1, 2 };
+		// data(containers[0] + containers[1]) = data[4]
+		data[4] = new float[] { 2, 1, 1, -3, 3, 0, 0, 1, 4, 8, 3, 2, 0, 2, 2, 0 };
+		// data(containers[0] - containers[1]) = data[5]
+		data[5] = new float[] { 0, 1, 1, 5, -3, 0, 0, -1, 2, -6, 1, 0, 0, 0, 0, 0 };
+		// data(containers[0] * vectors[0]) = data[6]
+		data[6] = new float[] { 12, 0, 14, 9 };
 
 		containers[0] = new Matrix4f();
 		containers[1] = new Matrix4f(data[1]);
-
 		containers[0].setContent(data[0]);
+		vectors[0] = new Vector4f(data[2]);
+
 	}
 
 	@Test
@@ -64,7 +71,7 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 
 	@Test
 	public void zeroTest() {
-		Matrix4f zeros = Matrix4f.zero();
+		Matrix4f zeros = Matrix4f.zeros();
 		for (float z : zeros.getContent()) {
 			assertEquals(z, 0, delta);
 		}
@@ -82,7 +89,7 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 
 	@Test
 	public void addTest() {
-		Matrix4f zeros = Matrix4f.zero();
+		Matrix4f zeros = Matrix4f.zeros();
 		zeros = zeros.add(4);
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -91,13 +98,13 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 		}
 
 		zeros = containers[0].add(containers[1]);
-		assertTrue("Add check with arbitrary data failed", zeros.equals(new Matrix4f(data[3])));
+		assertTrue("Add check with arbitrary data failed", zeros.equals(new Matrix4f(data[4])));
 
 	}
 
 	@Test
 	public void subTest() {
-		Matrix4f zeros = Matrix4f.zero();
+		Matrix4f zeros = Matrix4f.zeros();
 		zeros = zeros.sub(4);
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -106,7 +113,7 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 		}
 
 		zeros = containers[0].sub(containers[1]);
-		assertTrue("Sub check with arbitrary data failed", zeros.equals(new Matrix4f(data[4])));
+		assertTrue("Sub check with arbitrary data failed", zeros.equals(new Matrix4f(data[5])));
 
 	}
 
@@ -117,7 +124,7 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 		assertTrue("Id * M = M : statement returned false", containers[2].equals(containers[0]));
 
 		containers[2] = containers[0].product(containers[1]);
-		assertTrue("Product check with arbitrary data failed", containers[2].equals(new Matrix4f(data[2])));
+		assertTrue("Product check with arbitrary data failed", containers[2].equals(new Matrix4f(data[3])));
 
 		containers[2] = containers[0].product(2f);
 		for (int i = 0; i < 4; i++) {
@@ -125,6 +132,9 @@ public class Matrix4fTest extends MatrixNfTest<Matrix4f> {
 				assertEquals(containers[2].get(i, j), containers[0].get(i, j) * 2, delta);
 			}
 		}
+
+		vectors[1] = containers[0].product((Vector4f) vectors[0]);
+		assertTrue("Product check with Vector4f failed", vectors[1].equals(new Vector4f(data[6])));
 	}
 
 	@Test

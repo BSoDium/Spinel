@@ -1,5 +1,7 @@
 package io.github.spinel.math.matrix;
 
+import io.github.spinel.math.vector.Vector4f;
+
 public final class Matrix4f extends MatrixNf<Matrix4f> {
 
 	/**
@@ -34,8 +36,8 @@ public final class Matrix4f extends MatrixNf<Matrix4f> {
 	 * 
 	 * @return zero matrix
 	 */
-	public static Matrix4f zero() {
-		return new Matrix4f(new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f });
+	public static Matrix4f zeros() {
+		return new Matrix4f(new float[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 	}
 
 	/**
@@ -76,6 +78,28 @@ public final class Matrix4f extends MatrixNf<Matrix4f> {
 				output.set(sum, j, i);
 			}
 		}
+
+		return output;
+	}
+
+	/**
+	 * Matrix-vector multiplication.
+	 * 
+	 * @param vector the vector by which is to be multiplied the current Matrix4f
+	 *               instance
+	 * @return the matrix-vector product
+	 */
+	public Vector4f product(Vector4f vector) {
+		Vector4f output = new Vector4f(0, 0, 0, 0);
+
+		for (int i = 0; i < size[1]; i++) { // lines
+			float sum = 0;
+			for (int k = 0; k < size[0]; k++) {
+				sum += this.get(k, i) * vector.get(k);
+			}
+			output.set(sum, i);
+		}
+
 		return output;
 	}
 
