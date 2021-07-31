@@ -6,3 +6,5 @@ An openGL-based 3D rendering engine. This project was created as part of the [7m
 ## Documentation
 No documentation is available yet
  
+## Contributing
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/l3alr0g/Spinel)
