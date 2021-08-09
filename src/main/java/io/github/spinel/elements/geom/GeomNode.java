@@ -1,7 +1,10 @@
 package io.github.spinel.elements.geom;
 
 import io.github.spinel.exceptions.IncorrectChildTypeException;
+import io.github.spinel.math.matrix.Matrix4f;
+import io.github.spinel.math.matrix.TransferMatrix4f;
 import io.github.spinel.math.vector.Vector3f;
+import io.github.spinel.math.vector.Vector4f;
 import io.github.spinel.Engine;
 import io.github.spinel.elements.Node;
 import io.github.spinel.elements.RootNode;
@@ -133,10 +136,16 @@ public class GeomNode extends Node {
    * @return normal vector e_r
    */
   public Vector3f getReferenceX() {
-    double theta = Math.toRadians(rotation.getY());
-    double phi = Math.toRadians(rotation.getX());
-    return new Vector3f((float) -(Math.sin(theta) * Math.cos(phi)), (float) Math.sin(phi),
-        (float) -(Math.cos(theta) * Math.cos(phi)));
+    double phi = rotation.getX();
+    double theta = rotation.getY();
+    double beta = rotation.getZ();
+    // return new Vector3f((float) -(Math.sin(theta) * Math.cos(phi)), (float)
+    // Math.sin(phi),
+    // (float) -(Math.cos(theta) * Math.cos(phi)));
+    Vector4f output = TransferMatrix4f.rotation((float) phi, new Vector3f(1, 0, 0))
+        .product(TransferMatrix4f.rotation((float) theta, new Vector3f(0, 1, 0))
+            .product(TransferMatrix4f.rotation((float) beta, new Vector3f(0, 0, 1)).product(new Vector4f(1, 0, 0, 0))));
+    return new Vector3f(output.getX(), output.getY(), output.getZ());
   }
 
   /**
@@ -146,9 +155,15 @@ public class GeomNode extends Node {
    * @return tangent vector
    */
   public Vector3f getReferenceY() {
-    double phi = Math.toRadians(rotation.getX());
-    double beta = Math.toRadians(rotation.getZ());
-    return new Vector3f((float) -Math.sin(beta), (float) (Math.cos(phi) * Math.cos(beta)), (float) Math.sin(phi));
+    double phi = rotation.getX();
+    double theta = rotation.getY();
+    double beta = rotation.getZ();
+    // return new Vector3f((float) -Math.sin(beta), (float) (Math.cos(phi) *
+    // Math.cos(beta)), (float) Math.sin(phi));
+    Vector4f output = TransferMatrix4f.rotation((float) phi, new Vector3f(1, 0, 0))
+        .product(TransferMatrix4f.rotation((float) theta, new Vector3f(0, 1, 0))
+            .product(TransferMatrix4f.rotation((float) beta, new Vector3f(0, 0, 1)).product(new Vector4f(0, 1, 0, 0))));
+    return new Vector3f(output.getX(), output.getY(), output.getZ());
   }
 
   /**
@@ -158,10 +173,16 @@ public class GeomNode extends Node {
    * @return tangent vector
    */
   public Vector3f getReferenceZ() {
-    double theta = Math.toRadians(rotation.getY());
-    double beta = Math.toRadians(rotation.getZ());
-    return new Vector3f((float) -(Math.cos(theta) * Math.cos(beta)), (float) -Math.sin(beta),
-        (float) (Math.sin(theta) * Math.cos(beta)));
+    double phi = rotation.getX();
+    double theta = rotation.getY();
+    double beta = rotation.getZ();
+    // return new Vector3f((float) -(Math.cos(theta) * Math.cos(beta)), (float)
+    // -Math.sin(beta),
+    // (float) (Math.sin(theta) * Math.cos(beta)));
+    Vector4f output = TransferMatrix4f.rotation((float) phi, new Vector3f(1, 0, 0))
+        .product(TransferMatrix4f.rotation((float) theta, new Vector3f(0, 1, 0))
+            .product(TransferMatrix4f.rotation((float) beta, new Vector3f(0, 0, 1)).product(new Vector4f(0, 0, 1, 0))));
+    return new Vector3f(output.getX(), output.getY(), output.getZ());
   }
 
   /**
@@ -189,8 +210,7 @@ public class GeomNode extends Node {
   @Override
   public void compatibilityCheck(Node child) {
     if (!(child instanceof GeomNode)) {
-      throw new IncorrectChildTypeException(
-          "GeomNode element can only receive children of types GeomNode or lower.");
+      throw new IncorrectChildTypeException("GeomNode element can only receive children of types GeomNode or lower.");
     }
   }
 }
