@@ -1,4 +1,4 @@
-package io.github.spinel.exceptions;
+package io.github.spinel;
 
 /**
  * Thrown when an error was encountered during the initialization sequence.

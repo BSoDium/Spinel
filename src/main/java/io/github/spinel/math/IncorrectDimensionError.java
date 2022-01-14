@@ -1,4 +1,4 @@
-package io.github.spinel.exceptions;
+package io.github.spinel.math;
 
 /**
  * Thrown when mathematical objects encounter dimensional inconsistencies.

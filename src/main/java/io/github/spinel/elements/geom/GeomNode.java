@@ -1,11 +1,11 @@
 package io.github.spinel.elements.geom;
 
-import io.github.spinel.exceptions.IncorrectChildTypeException;
 import io.github.spinel.math.matrix.Matrix4f;
 import io.github.spinel.math.matrix.TransferMatrix4f;
 import io.github.spinel.math.vector.Vector3f;
 import io.github.spinel.math.vector.Vector4f;
 import io.github.spinel.Engine;
+import io.github.spinel.elements.IncorrectChildTypeException;
 import io.github.spinel.elements.Node;
 import io.github.spinel.elements.RootNode;
 

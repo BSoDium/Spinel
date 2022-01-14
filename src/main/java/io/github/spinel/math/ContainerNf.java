@@ -2,8 +2,6 @@ package io.github.spinel.math;
 
 import java.util.Arrays;
 
-import io.github.spinel.exceptions.IncorrectDimensionError;
-
 /**
  * A container is a mathematical object which can contain n-dimensional data
  * such as matrices or vectors.

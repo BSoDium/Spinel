@@ -1,4 +1,4 @@
-package io.github.spinel.exceptions;
+package io.github.spinel.elements;
 
 /**
  * Thrown when a child of an incorrect type is affected to a RootNode subtype.

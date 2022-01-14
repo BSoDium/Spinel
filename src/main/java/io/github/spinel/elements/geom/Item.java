@@ -1,6 +1,6 @@
 package io.github.spinel.elements.geom;
 
-import io.github.spinel.exceptions.IncorrectChildTypeException;
+import io.github.spinel.elements.IncorrectChildTypeException;
 import io.github.spinel.elements.Node;
 import io.github.spinel.gfx.Mesh;
 import io.github.spinel.math.vector.Vector3f;

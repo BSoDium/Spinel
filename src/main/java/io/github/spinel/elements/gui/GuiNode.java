@@ -1,6 +1,6 @@
 package io.github.spinel.elements.gui;
 
-import io.github.spinel.exceptions.IncorrectChildTypeException;
+import io.github.spinel.elements.IncorrectChildTypeException;
 import io.github.spinel.elements.Node;
 
 import imgui.ImGui;

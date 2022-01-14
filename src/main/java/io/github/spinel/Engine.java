@@ -1,6 +1,5 @@
 package io.github.spinel;
 
-import io.github.spinel.exceptions.IllegalInstanceException;
 import io.github.spinel.elements.geom.Camera;
 import io.github.spinel.gfx.Color;
 import io.github.spinel.gfx.GuiRenderer;

@@ -1,4 +1,4 @@
-package io.github.spinel.exceptions;
+package io.github.spinel;
 
 /**
  * Thrown when attempting to instanciate a class which only allows one instance

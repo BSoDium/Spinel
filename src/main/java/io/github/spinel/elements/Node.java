@@ -1,7 +1,5 @@
 package io.github.spinel.elements;
 
-import io.github.spinel.exceptions.IncorrectChildTypeException;
-
 public class Node extends RootNode {
   protected RootNode parent;
 
