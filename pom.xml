@@ -3,12 +3,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.l3alr0g</groupId>
-  <artifactId>Spinel</artifactId>
-  <version>0.0.6</version>
+  <groupId>io.github.spinel</groupId>
+  <artifactId>spinel</artifactId>
+  <version>0.0.4</version>
   <packaging>jar</packaging>
 
-  <name>Spinel</name>
+  <name>spinel</name>
   <description>
     An openGL-based 3D rendering engine.
   </description>
@@ -36,8 +36,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
 
     <lwjgl.version>3.2.3</lwjgl.version>
     <imgui.java.version>1.82.2</imgui.java.version>
