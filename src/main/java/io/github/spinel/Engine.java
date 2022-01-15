@@ -43,7 +43,7 @@ public class Engine implements Runnable {
 		window = new Window(windowSize[0], windowSize[1], title);
 		guiRoot = new GuiRenderer(window);
 		camera.setParent(sceneRoot);
-		// initialize window background color
+		// initialize window background color (default)
 		window.setBgColor(bgColor);
 	}
 

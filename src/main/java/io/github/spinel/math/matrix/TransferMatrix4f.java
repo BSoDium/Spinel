@@ -43,6 +43,34 @@ public class TransferMatrix4f {
     return output;
   }
 
+  public static Matrix4f rotation(Vector3f angles) {
+    Matrix4f output = Matrix4f.id();
+
+    float alpha = angles.getX();
+    float beta = angles.getY();
+    float gamma = angles.getZ();
+
+    float cosAlpha = (float) Math.cos(Math.toRadians(alpha));
+    float sinAlpha = (float) Math.sin(Math.toRadians(alpha));
+
+    float cosBeta = (float) Math.cos(Math.toRadians(beta));
+    float sinBeta = (float) Math.sin(Math.toRadians(beta));
+
+    float cosGamma = (float) Math.cos(Math.toRadians(gamma));
+    float sinGamma = (float) Math.sin(Math.toRadians(gamma));
+
+    output.set(cosBeta * cosGamma, 0, 0);
+    output.set(sinAlpha * sinBeta * cosGamma - cosAlpha * sinGamma, 0, 1);
+    output.set(cosAlpha * sinBeta * cosGamma + sinAlpha * sinGamma, 0, 2);
+    output.set(cosBeta * sinGamma, 1, 0);
+    output.set(sinAlpha * sinBeta * sinGamma + cosAlpha * cosGamma, 1, 1);
+    output.set(cosAlpha * sinBeta * sinGamma - sinAlpha * cosGamma, 1, 2);
+    output.set(-sinBeta, 2, 0);
+    output.set(sinAlpha * cosBeta, 2, 1);
+    output.set(cosAlpha * cosBeta, 2, 2);
+    return output;
+  }
+
   /**
    * Generate a scaling matrix.
    * 
