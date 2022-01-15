@@ -5,7 +5,7 @@
 
   <groupId>io.github.l3alr0g</groupId>
   <artifactId>spinel</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <packaging>jar</packaging>
 
   <name>spinel</name>
@@ -36,8 +36,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>16</maven.compiler.source>
-    <maven.compiler.target>16</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
 
     <lwjgl.version>3.2.3</lwjgl.version>
     <imgui.java.version>1.82.2</imgui.java.version>
