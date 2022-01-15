@@ -2,8 +2,6 @@ package io.github.spinel.math;
 
 import java.util.Arrays;
 
-import io.github.spinel.exceptions.IncorrectDimensionError;
-
 /**
  * A container is a mathematical object which can contain n-dimensional data
  * such as matrices or vectors.
@@ -21,6 +19,9 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
   /**
    * Create a new float container. This should only be used in child classes, as
    * ContainerNf is an abstract class.
+   * 
+   * @param dim  The number of dimensions of the container.
+   * @param size The size of each dimension of the container.
    */
   protected ContainerNf(int dim, int[] size) {
     if (size.length != dim) {
@@ -41,7 +42,14 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
     computeCoefs();
   }
 
-  // TODO : javadoc
+  /**
+   * Create a new float container. This should only be used in child classes, as
+   * ContainerNf is an abstract class.
+   * 
+   * @param dim     The number of dimensions of the container.
+   * @param size    The size of each dimension inside the container.
+   * @param content The data inside the container.
+   */
   protected ContainerNf(int dim, int[] size, float[] content) {
     this(dim, size);
     setContent(content);
@@ -64,7 +72,7 @@ public abstract class ContainerNf<C extends ContainerNf<C>> {
    * Retrieve data from the container.
    * 
    * @param args the indices at which the data should be retrieved
-   * @return
+   * @return the data at the specified indices
    */
   protected float get(int... args) {
     if (args.length == dim) {

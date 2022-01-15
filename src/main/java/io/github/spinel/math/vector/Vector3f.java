@@ -17,7 +17,7 @@ public final class Vector3f extends VectorNf<Vector3f> {
    * Create a new Vector3f with a predefined dimension count of 1, and a size of 1
    * by 3. Provide the constructor with some initial data to start with.
    */
-  protected Vector3f(float[] content) {
+  public Vector3f(float[] content) {
     super(3, content);
   }
 

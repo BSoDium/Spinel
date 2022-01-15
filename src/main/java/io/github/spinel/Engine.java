@@ -1,6 +1,5 @@
 package io.github.spinel;
 
-import io.github.spinel.exceptions.IllegalInstanceException;
 import io.github.spinel.elements.geom.Camera;
 import io.github.spinel.gfx.Color;
 import io.github.spinel.gfx.GuiRenderer;
@@ -44,7 +43,7 @@ public class Engine implements Runnable {
 		window = new Window(windowSize[0], windowSize[1], title);
 		guiRoot = new GuiRenderer(window);
 		camera.setParent(sceneRoot);
-		// initialize window background color
+		// initialize window background color (default)
 		window.setBgColor(bgColor);
 	}
 

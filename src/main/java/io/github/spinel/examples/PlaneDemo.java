@@ -95,18 +95,18 @@ public class PlaneDemo {
 
   private void setup() {
     keybinds.put(GLFW.GLFW_KEY_A, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceZ().divide(8))));
+        .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceX().divide(-8))));
     keybinds.put(GLFW.GLFW_KEY_D, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceZ().divide(8))));
+        .setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceX().divide(-8))));
     keybinds.put(GLFW.GLFW_KEY_W, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceX().divide(8))));
+        .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceZ().divide(-8))));
     keybinds.put(GLFW.GLFW_KEY_S, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceX().divide(8))));
+        .setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceZ().divide(-8))));
 
-    keybinds.put(GLFW.GLFW_KEY_Z, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceY().divide(8))));
-    keybinds.put(GLFW.GLFW_KEY_X, () -> engine.getCamera()
-        .setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceY().divide(8))));
+    keybinds.put(GLFW.GLFW_KEY_Z,
+        () -> engine.getCamera().setPos(engine.getCamera().getPos().add(engine.getCamera().getReferenceY().divide(8))));
+    keybinds.put(GLFW.GLFW_KEY_X,
+        () -> engine.getCamera().setPos(engine.getCamera().getPos().sub(engine.getCamera().getReferenceY().divide(8))));
     keybinds.put(GLFW.GLFW_KEY_E, () -> engine.getCamera().setRot(engine.getCamera().getRot().getX(),
         engine.getCamera().getRot().getY(), engine.getCamera().getRot().getZ() + 1f));
     keybinds.put(GLFW.GLFW_KEY_Q, () -> engine.getCamera().setRot(engine.getCamera().getRot().getX(),

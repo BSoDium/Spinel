@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import io.github.spinel.exceptions.IncorrectChildTypeException;
 import io.github.spinel.Engine;
 import io.github.spinel.elements.geom.GeomNode;
 import io.github.spinel.elements.gui.GuiNode;

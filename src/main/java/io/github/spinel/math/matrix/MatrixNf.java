@@ -23,7 +23,7 @@ public abstract class MatrixNf<M extends MatrixNf<M>> extends ContainerNf<M> {
    * Create a new `Matrixf` with a predefined dimension count of 2, a specified
    * size and some initial data (content array).
    * 
-   * @param size  the size of each dimension of the `Matrixf` : {columns, lines}
+   * @param size    the size of each dimension of the `Matrixf` : {columns, lines}
    * @param content the initial data
    */
   protected MatrixNf(int[] size, float[] content) {
@@ -45,11 +45,10 @@ public abstract class MatrixNf<M extends MatrixNf<M>> extends ContainerNf<M> {
    * Set data at coordinates (i, j)
    * 
    * @param value data(i,j)
-   * @param i   column index
-   * @param j   line index
+   * @param i     column index
+   * @param j     line index
    */
   public void set(float value, int i, int j) {
     super.set(value, i, j);
   }
-
 }

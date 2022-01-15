@@ -1,6 +1,5 @@
 package io.github.spinel;
 
-import io.github.spinel.exceptions.InitError;
 import io.github.spinel.gfx.Color;
 import io.github.spinel.math.vector.Vector3f;
 import io.github.spinel.scheduling.Task;
@@ -209,7 +208,7 @@ public class Window extends FrameObject {
   /**
    * Schedule Runnable action executed on key press interrupt.
    * 
-   * @param key  key code
+   * @param key    key code
    * @param action lambda runnable
    * @return generated {@code task} object
    */
